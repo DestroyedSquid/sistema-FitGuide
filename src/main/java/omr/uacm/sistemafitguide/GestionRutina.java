@@ -4,12 +4,16 @@
  */
 
 package omr.uacm.sistemafitguide;
+<<<<<<< HEAD
 import omr.uacm.sistemafitguide.controlador.PantallaConfiguracionRutinaController;
 
+=======
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
 import java.util.List;
 import java.util.ArrayList;
 
 /**
+<<<<<<< HEAD
  * JavaFX App - Gestor Secuencial de Rutinas
  */
 public class GestionRutina {
@@ -18,15 +22,28 @@ public class GestionRutina {
     
     // IMPORTANTÍSIMO: El índice en Java empieza en 0 para acceder a las Listas
     private int ejercicioActual = 0; 
+=======
+ * JavaFX App
+ */
+
+public class GestionRutina {
+    private static GestionRutina instancia;
+    private List<Ejercicio> listaCargada = new ArrayList<>();
+    private int ejercicioActual = 1;
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
     private int totalRepeticionesReales = 0;
     private String musculoSeleccionado = "";
     private String nivelSeleccionado = "";
     private boolean usaMancuernas = false;
     private String llaveRutina = ""; 
+<<<<<<< HEAD
     private double pesoExtraKg = 0.0;
     private int seriesTotales = 2; // por defecto 2 series.
     private int serieActual = 1;   // Solo para mostrar visualmente "Serie 1 de X"
     private int idUsuarioLogueado;
+=======
+
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
     private GestionRutina() {}
 
     public static GestionRutina getInstance() {
@@ -35,6 +52,7 @@ public class GestionRutina {
     }
 
     public void configurarRutina() {
+<<<<<<< HEAD
         // 1. Obtenemos los ejercicios base (solo los 3 o 4 originales)
         List<Ejercicio> ejerciciosBase = CatalogoEjercicios.obtenerRutina(musculoSeleccionado, nivelSeleccionado, usaMancuernas);
         
@@ -58,11 +76,19 @@ public class GestionRutina {
             // 4. Aplicamos las repeticiones personalizadas a los ejercicios base primero
             if (ejerciciosBase != null && configUsuario.getMapaRepeticiones() != null) {
                 for (Ejercicio ej : ejerciciosBase) {
+=======
+        this.listaCargada = CatalogoEjercicios.obtenerRutina(musculoSeleccionado, nivelSeleccionado, usaMancuernas);
+        if (this.listaCargada != null && !this.listaCargada.isEmpty()) {
+            Rutina configUsuario = PantallaConfiguracionRutinaController.mapaRutinas.get(llaveRutina);
+            if (configUsuario != null && configUsuario.getMapaRepeticiones() != null) {
+                for (Ejercicio ej : listaCargada) {
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
                     if (configUsuario.getMapaRepeticiones().containsKey(ej.getNombre())) {
                         ej.setRepeticionesObjetivo(configUsuario.getMapaRepeticiones().get(ej.getNombre()));
                     }
                 }
             }
+<<<<<<< HEAD
         } else {
             this.seriesTotales = 2; // Si no hay config, fallback a 2 series.
         }
@@ -86,18 +112,39 @@ public class GestionRutina {
         }
     }
 
+=======
+        }
+        this.ejercicioActual = 1;
+        this.totalRepeticionesReales = 0;
+    }
+
+   
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
     public int getTiempoDescansoConfigurado() {
         Rutina r = PantallaConfiguracionRutinaController.mapaRutinas.get(llaveRutina);
         return (r != null) ? r.getTiempoDescanso() : 30;
     }
 
+<<<<<<< HEAD
     // Devuelve el ejercicio basado en el índice actual (que empieza en 0)
     public Ejercicio getEjercicioActualData() {
         if (listaCargada != null && !listaCargada.isEmpty() && ejercicioActual < listaCargada.size()) {
+=======
+    
+    public Ejercicio getEjercicioActualData() {
+        if (listaCargada != null && !listaCargada.isEmpty() && ejercicioActual <= listaCargada.size()) {
+            return listaCargada.get(ejercicioActual - 1);
+        }
+        return null;
+    }
+    public Ejercicio getSiguienteEjercicioData() {
+        if (listaCargada != null && ejercicioActual < listaCargada.size()) {
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
             return listaCargada.get(ejercicioActual);
         }
         return null;
     }
+<<<<<<< HEAD
     
     // Devuelve el ejercicio siguiente para las pantallas de Descanso
     public Ejercicio getSiguienteEjercicioData() {
@@ -156,6 +203,21 @@ public class GestionRutina {
             this.pesoExtraKg = 0.0; 
     }
 
+=======
+    public String obtenerSiguientePantalla() {
+        return (ejercicioActual >= getTotalEjercicios()) ? "PantallaResumen" : "PantallaDescanso";
+    }
+    public int getTotalEjercicios() { return listaCargada != null ? listaCargada.size() : 0; }
+    public int getEjercicioActual() { return ejercicioActual; }
+    public void avanzarAlSiguienteEjercicio() { if (ejercicioActual < getTotalEjercicios()) { ejercicioActual++; } }
+    public void sumarRepeticiones(int reps) { if (reps > 0) { this.totalRepeticionesReales += reps; } }
+    public int getTotalRepeticionesReales() { return totalRepeticionesReales; }
+    public void reiniciarRutina() {
+        this.ejercicioActual = 1;
+        this.totalRepeticionesReales = 0;
+        this.listaCargada.clear();
+    }
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
     public String getMusculoSeleccionado() { return musculoSeleccionado; }
     public String getNivelSeleccionado() { return nivelSeleccionado; }
     public boolean isUsaMancuernas() { return usaMancuernas; }
@@ -163,9 +225,13 @@ public class GestionRutina {
     public void setNivelSeleccionado(String n) { this.nivelSeleccionado = n; }
     public void setUsaMancuernas(boolean u) { this.usaMancuernas = u; }
     public void setLlaveRutina(String l) { this.llaveRutina = l; } 
+<<<<<<< HEAD
     public String getLlaveRutina() { return llaveRutina; }
     public int getIdUsuarioLogueado() { return idUsuarioLogueado; }
     public void setIdUsuarioLogueado(int idUsuarioLogueado) { this.idUsuarioLogueado = idUsuarioLogueado; }
     public double getPesoExtraKg() { return pesoExtraKg; }
     public void setPesoExtraKg(double pesoExtraKg) { this.pesoExtraKg = pesoExtraKg; }
+=======
+    public String getLlaveRutina() { return llaveRutina; }         
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -99,4 +100,7 @@
       <FILTER>omr.uacm.sistemafitguide.*</FILTER>
     </SUITE>
   </component>
+=======
+  <component name="PropertiesComponent">{}</component>
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
 </project>

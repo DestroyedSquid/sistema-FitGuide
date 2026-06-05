@@ -14,3 +14,10 @@ target/
 # Archivos de sistema operativo
 .DS_Store
 Thumbs.db
+=======
+# Default ignored files
+target/
+*.class
+*.jar
+.idea/
+*.iml

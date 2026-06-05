@@ -20,11 +20,14 @@
     <artifactId>javafx-fxml</artifactId>
     <version>21.0.10</version>
 </dependency>
+<<<<<<< HEAD
         <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.45.1.0</version>
         </dependency>
+=======
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
     </dependencies>
     <build>
         <plugins>

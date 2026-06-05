@@ -21,6 +21,7 @@ import javafx.scene.image.Image;
 public class App extends Application {
 
     private static Scene scene;
+<<<<<<< HEAD
 
     @Override
     public void start(Stage stage) {
@@ -50,12 +51,36 @@ public class App extends Application {
     }
 
     public static void setRoot(String fxml) throws IOException {
+=======
+  
+    @Override
+    public void start(Stage stage) throws IOException {
+        scene = new Scene(loadFXML("PantallaInicio"), 900, 600);
+        
+        try {
+            Image icon = new Image(App.class.getResourceAsStream("/omr/uacm/sistemafitguide/imagenes/logo.jpg"));
+            stage.getIcons().add(icon);
+        } catch (Exception e) {
+            System.err.println("No se encontró el ícono principal.");
+        }
+        
+        stage.setScene(scene);
+        stage.setTitle("FitGuide");
+        stage.show();
+    }    
+
+    static void setRoot(String fxml) throws IOException {
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
         scene.setRoot(loadFXML(fxml));
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
+<<<<<<< HEAD
         // Agregamos "/vista/" para que sepa en qué carpeta buscar el archivo
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("vista/" + fxml + ".fxml"));
+=======
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
         return fxmlLoader.load();
     }
 

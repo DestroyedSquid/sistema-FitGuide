@@ -4,12 +4,20 @@
  */
 package omr.uacm.sistemafitguide;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  *
+<<<<<<< HEAD
  * @author MiguelDiaz
+=======
+ * @author migue
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
  */
 public class Rutina {
     private String grupoMuscular;
@@ -17,17 +25,26 @@ public class Rutina {
     private String nivel;
     private int tiempoDescanso;
     private Map<String, Integer> mapaRepeticiones;
+<<<<<<< HEAD
     private double pesoExtraKg;
     private int series;
+=======
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
 
     public Rutina(String grupoMuscular) {
         this.grupoMuscular = grupoMuscular;
         this.mapaRepeticiones = new HashMap<>();
         this.tiempoDescanso = 30; // Descanso por defecto de 30 segundos
+<<<<<<< HEAD
         this.pesoExtraKg = 0.0;   // Peso inicial por defecto
         this.series = 2;//por defecto 2 series
     }
 
+=======
+    }
+
+
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
     public String getGrupoMuscular() { return grupoMuscular; }
     public void setGrupoMuscular(String grupoMuscular) { this.grupoMuscular = grupoMuscular; }
 
@@ -42,10 +59,13 @@ public class Rutina {
 
     public Map<String, Integer> getMapaRepeticiones() { return mapaRepeticiones; }
     public void setMapaRepeticiones(Map<String, Integer> mapaRepeticiones) { this.mapaRepeticiones = mapaRepeticiones; }
+<<<<<<< HEAD
     
     public double getPesoExtraKg() { return pesoExtraKg; }
     public void setPesoExtraKg(double pesoExtraKg) { this.pesoExtraKg = pesoExtraKg; }
     
     public int getSeries() { return series; }
     public void setSeries(int series) { this.series = series; }
+=======
+>>>>>>> 5412f6ef5012c127b0b6076e70790963819f6f8d
 }
